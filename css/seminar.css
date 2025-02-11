@@ -1,0 +1,79 @@
+.rankings-section {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.top-volunteers {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.rank-card {
+    background: white;
+    padding: 15px;
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 200px;
+}
+
+.rank-1 {
+    border: 2px solid gold;
+}
+
+.rank-2 {
+    border: 2px solid silver;
+}
+
+.rank-3 {
+    border: 2px solid #cd7f32;
+}
+
+.rank-number {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.volunteer-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.your-rank {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+    padding: 10px;
+    background: #e8f5e9;
+    border-radius: 4px;
+}
+
+.seminar-history table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.seminar-history th,
+.seminar-history td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.seminar-history th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
+
+.add-seminar-form {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+} 

@@ -1,0 +1,188 @@
+/* Spinner Container */
+.spinner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.spinner-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Modern Creative Spinner */
+.spinner {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    perspective: 500px;
+}
+
+/* 3D Rotating Cube */
+.cube {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    left: 50%;
+    transform-style: preserve-3d;
+    animation: cube-spin 4s infinite ease-in-out;
+}
+
+.cube-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color);
+    border-radius: 4px;
+    opacity: 0.9;
+}
+
+.front  { transform: rotateY(0deg) translateZ(25px); }
+.back   { transform: rotateY(180deg) translateZ(25px); }
+.right  { transform: rotateY(90deg) translateZ(25px); }
+.left   { transform: rotateY(-90deg) translateZ(25px); }
+.top    { transform: rotateX(90deg) translateZ(25px); }
+.bottom { transform: rotateX(-90deg) translateZ(25px); }
+
+/* Pulsing Circles */
+.pulse-circle {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 2px solid var(--secondary-color);
+    animation: pulse-ring 4s infinite ease-out;
+}
+
+.pulse-circle:nth-child(2) {
+    animation-delay: 1.3s;
+}
+
+.pulse-circle:nth-child(3) {
+    animation-delay: 2.6s;
+}
+
+/* Loading Text */
+.spinner-text {
+    position: absolute;
+    width: 200px;
+    text-align: center;
+    left: 50%;
+    bottom: -60px;
+    transform: translateX(-50%);
+    font-size: 16px;
+    font-weight: 500;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: text-fade 4s infinite ease-in-out;
+}
+
+/* Keyframe Animations */
+@keyframes cube-spin {
+    0% {
+        transform: translate(-50%, -50%) rotateX(0) rotateY(0) rotateZ(0);
+    }
+    25% {
+        transform: translate(-50%, -50%) rotateX(180deg) rotateY(0) rotateZ(0);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotateX(180deg) rotateY(180deg) rotateZ(0);
+    }
+    75% {
+        transform: translate(-50%, -50%) rotateX(0) rotateY(180deg) rotateZ(180deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotateX(0) rotateY(0) rotateZ(360deg);
+    }
+}
+
+@keyframes pulse-ring {
+    0% {
+        transform: translate(-50%, -50%) scale(0.3);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(0.3);
+        opacity: 0;
+    }
+}
+
+@keyframes text-fade {
+    0%, 100% {
+        opacity: 0.5;
+        transform: translateX(-50%) scale(0.95);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+/* Glowing Effect */
+.spinner::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120px;
+    height: 120px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, 
+        rgba(var(--primary-color-rgb), 0.2) 0%,
+        rgba(var(--primary-color-rgb), 0) 70%);
+    animation: glow 4s infinite ease-in-out;
+}
+
+@keyframes glow {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0.8;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .spinner {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .cube {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .pulse-circle {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .spinner-text {
+        font-size: 14px;
+        bottom: -50px;
+    }
+} 

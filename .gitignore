@@ -1,0 +1,22 @@
+# Dependencies
+/vendor/
+/node_modules/
+
+# Upload directories
+/uploads/*
+!/uploads/.gitkeep
+
+# Environment files
+.env
+config/db_connect.php
+
+# OS generated files
+.DS_Store
+Thumbs.db
+*.log
+
+# IDE specific files
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project 
